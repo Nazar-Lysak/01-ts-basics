@@ -10,9 +10,9 @@ async function fetchPosts():Promise<Post[]> {
   const response = await axios.get<Post[]>(
     'https://jsonplaceholder.typicode.com/posts'
   );
-  return response.data;
+  return response.data as Post[];
 }
 
-fetchPosts().then((posts) => {
+fetchPosts().then((posts: Post[]) => {
   console.log(posts[0].title);
 });
